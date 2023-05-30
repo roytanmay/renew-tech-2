@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import classes from "./MainHeader.module.css";
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,8 +7,12 @@ import {
   faMoon,
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
+import MenuItems from "./MenuItems";
 
 const MainHeader = () => {
+  const [active, setActive] = useState(false);
   const [theme, setTheme] = useState(null);
 
   useEffect(() => {
@@ -53,70 +56,34 @@ const MainHeader = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const showMenu = () => {
+    setActive(!active);
+  };
 
   return (
-    <header
-      className={`bg-green-800 dark:bg-[#023602] w-full p-3 h-12 ${classes.header}`}
-    >
-      <nav className="flex flex-row justify-between text-white px-36">
-        <div className="logo">
-          <NavLink to="/">RENEW TECH</NavLink>
+    <div className=" w-full bg-green-800 dark:bg-[#023602] text-white flex justify-between p-3 h-12 items-center">
+      <div className="text-2xl font-bold text-center uppercase">
+        <Link to="/">
+          <h1>RENEW TECH</h1>
+        </Link>
+      </div>
+
+      <nav>
+        <div className=" right-8 md:hidden scale-150">
+          <MenuIcon onClick={showMenu} className="scale-100 cursor-pointer" />
         </div>
-        <ul className="flex flex-row w-1/3 justify-between">
+        <ul className="hidden md:flex gap-8 p-2 uppercase bg-white/10">
           <li>
-            <NavLink
-              className={(navData) => {
-                if (navData.isActive) return classes.active;
-                return "";
-              }}
-              to="/community"
-            >
-              Community
-            </NavLink>
+            <Link to="/shop">Shop</Link>
           </li>
           <li>
-            <NavLink
-              className={(navData) => {
-                if (navData.isActive) return classes.active;
-                return "";
-              }}
-              to="/support"
-            >
-              Support
-            </NavLink>
+            <Link to="/community">Community</Link>
           </li>
           <li>
-            <NavLink
-              className={(navData) => {
-                if (navData.isActive) return classes.active;
-                return "";
-              }}
-              to="/about"
-            >
-              About
-            </NavLink>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <NavLink
-              className={(navData) => {
-                if (navData.isActive) return classes.active;
-                return "";
-              }}
-              to="/user"
-            >
-              <FontAwesomeIcon icon={faUser} />
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={(navData) => {
-                if (navData.isActive) return classes.active;
-                return "";
-              }}
-              to="/cart"
-            >
-              <FontAwesomeIcon icon={faCartShopping} />
-            </NavLink>
+            <Link to="/support">Support</Link>
           </li>
           <li>
             <button onClick={handleThemeSwitch}>
@@ -124,8 +91,10 @@ const MainHeader = () => {
             </button>
           </li>
         </ul>
+
+        <MenuItems showMenu={showMenu} active={active} />
       </nav>
-    </header>
+    </div>
   );
 };
 

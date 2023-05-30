@@ -10,5 +10,14 @@ export const images = {
   sp4: require("../images/sp4.png"),
   sp5: require("../images/sp5.png"),
   sp6: require("../images/sp6.png"),
+  sbg2: require("../images/sbg2.jpg"),
+  btn: require("../images/button.png"),
+  del: require("../images/del.jpg"),
+  online: require("../images/online.jpg"),
+  save: require("../images/saving.jpg"),
+  support: require("../images/support.jpg"),
+  promo: require("../images/promotion.jpeg"),
+  recycle: require("../images/recycle.jpeg"),
+  contact_us: require("../images/contact_us.jpg"),
   // Add more images here
 };

@@ -9,6 +9,8 @@ import MainHeader from "./components/MainHeader";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 import "./App.css";
+import Shop from "./pages/Shop";
+import Blog from "./pages/Blog";
 
 function App() {
   return (
@@ -20,9 +22,11 @@ function App() {
           <Route path="/community" element={<Community></Community>} />
           <Route path="/support" element={<Support></Support>} />
           <Route path="/about" element={<About></About>} />
+          <Route path="/shop" element={<Shop></Shop>}></Route>
           <Route path="/signup" element={<SignUp></SignUp>} />
           <Route path="/login" element={<LogIn></LogIn>} />
           <Route path="/profile" element={<Profile></Profile>} />
+          <Route path="/blogs" element={<Blog></Blog>} />
         </Routes>
       </main>
       <Footer />

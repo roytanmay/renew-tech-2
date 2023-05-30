@@ -4,6 +4,10 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {},
+    fontFamily: {
+      font1: ["Roboto Slab", "serif"],
+      font2: ["Josefin Sans", "sans-serif"],
+    },
   },
   plugins: [],
 };
